@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="downloadsBtn">
+    <file>download.png</file>
+  </qresource>
+  <qresource prefix="newPrefix">
+    <file>1570294138_ahiru_no_sora.jpg</file>
+  </qresource>
+  <qresource prefix="settingsBtn">
+    <file>edit-tools.png</file>
+  </qresource>
+  <qresource prefix="listBtn">
+    <file>list.png</file>
+  </qresource>
+</RCC>

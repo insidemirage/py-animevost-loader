@@ -80,6 +80,8 @@ class MainWindow(QMainWindow, design.Ui_MainWindow):
         self.pbars = []
         self.thread.start()
 
+
+
     def _downloads_progress(self, item):
         print("loads progress")
         done = item.get("done")
@@ -96,7 +98,7 @@ class MainWindow(QMainWindow, design.Ui_MainWindow):
         self.pbars = []
         for item in video_links:
             pbar = QProgressBar(self)
-            self.verticalLayout_2.addWidget(pbar)
+            self.scrollareadownloads.addWidget(pbar)
             self.pbars.append(pbar)
 
         pool.map_async(loadvideo.download_video,[(link,i, queue) for i,link in enumerate(video_links)])
