@@ -10,8 +10,14 @@
     <x>0</x>
     <y>0</y>
     <width>679</width>
-    <height>427</height>
+    <height>438</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Animevost Load App</string>
@@ -183,7 +189,7 @@ padding: 4px;</string>
              <x>0</x>
              <y>0</y>
              <width>661</width>
-             <height>291</height>
+             <height>302</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -214,7 +220,7 @@ padding: 4px;</string>
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="SearchEdit">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -234,7 +240,7 @@ padding-left:10px;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="searchListButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -271,7 +277,7 @@ padding: 4px;</string>
          </layout>
         </item>
         <item>
-         <widget class="QScrollArea" name="scrollArea_2">
+         <widget class="QScrollArea" name="ListScrollArea">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -281,9 +287,14 @@ padding: 4px;</string>
              <x>0</x>
              <y>0</y>
              <width>661</width>
-             <height>305</height>
+             <height>316</height>
             </rect>
            </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <layout class="QVBoxLayout" name="scrollAreaWidget"/>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -555,30 +566,6 @@ padding: 4px;</string>
              </property>
             </widget>
            </item>
-           <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-            <widget class="QPushButton" name="downloadAbout">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:#5F5F5F;
-
-border-width: 2px;
-border-radius: 10px;
-color:white;
-width:65px;
-height:30px;
-padding: 4px;
-</string>
-             </property>
-             <property name="text">
-              <string>Download</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
@@ -588,16 +575,19 @@ padding: 4px;
            <bool>true</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">color:white;</string>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

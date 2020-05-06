@@ -4,7 +4,18 @@
 
 Программа позволяет скачать аниме с сайта animevost'a
 
+### Иконки кнопок меню сверху:
+<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+
 
 ### Релизы
-05.05.2020 - beta 0.1v
+05.05.2020 - beta 0.1v  
+07.05.2020 - beta 0.2v  
+* Добавлена библиотека аниме
+* Добавлена возможность поиска по библиотеке
+* Доработана кнопка скачать на экране просмотра детальной информации
+* Обновлен дизайн
+* Приложение разбито на экраны
+
 

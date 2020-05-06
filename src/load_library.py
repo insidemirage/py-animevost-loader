@@ -21,22 +21,22 @@ def get_titles_from_page(link):
         image = mirror + title.find("img").get("src")
         title_content = title.find("div", class_="shortstoryContent")
         title_data = title.find_all("p")
-        date = re.search(r"\d.*",title_data[0].text)
+        date = re.search(r"\d.*", title_data[0].text)
         if date:
             date = date.group(0)
         else:
             date = ""
-        genre = re.sub(r"Жанр: +","", title_data[1].text)
-        author = re.sub(r"Режиссёр: +","", title_data[4].text)
-        text = re.sub(r"Описание: +","", title_data[-1].text)
+        genre = re.sub(r"Жанр: +", "", title_data[1].text)
+        author = re.sub(r"Режиссёр: +", "", title_data[4].text)
+        text = re.sub(r"Описание: +", "", title_data[-1].text)
         result_titles.append({
-            "name":name,
-            "link":title_link,
-            "image":image,
-            "date":date,
-            "genre":genre,
-            "author":author,
-            "text":text
+            "name": name.replace("\n", ""),
+            "link": title_link,
+            "image": image,
+            "date": date,
+            "genre": genre,
+            "author": author,
+            "text": text
         })
     print(f"Page {link} done!")
     return result_titles
@@ -60,7 +60,12 @@ def main():
     result = pool.map(get_titles_from_page, page_links)
     pool.close()
     pool.join()
-    with open("temp.json", "w+", encoding="utf8") as file:
-     json.dump(result, file, ensure_ascii=False, indent=2)
+    writable = []
+    for i in result:
+        for j in i:
+            writable.append(j)
+    del result
+    with open("anime_base.json", "w+", encoding="utf8") as file:
+        json.dump(writable, file, ensure_ascii=False, indent=2)
 
 main()

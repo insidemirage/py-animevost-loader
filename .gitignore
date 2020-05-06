@@ -2,4 +2,6 @@
 *.jpg
 *.html
 *.mp4
+*.png
+*.txt
 .idea/

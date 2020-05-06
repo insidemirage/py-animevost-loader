@@ -14,7 +14,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
-        MainWindow.resize(679, 427)
+        MainWindow.resize(679, 438)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setStyleSheet("background-color:#444343;\n"
 "border:none;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -110,7 +115,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 661, 291))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 661, 302))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
@@ -128,45 +133,50 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem1)
-        self.lineEdit = QtWidgets.QLineEdit(self.ListPage)
+        self.SearchEdit = QtWidgets.QLineEdit(self.ListPage)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
-        self.lineEdit.setSizePolicy(sizePolicy)
-        self.lineEdit.setStyleSheet("background-color:#E7E7E7;\n"
+        sizePolicy.setHeightForWidth(self.SearchEdit.sizePolicy().hasHeightForWidth())
+        self.SearchEdit.setSizePolicy(sizePolicy)
+        self.SearchEdit.setStyleSheet("background-color:#E7E7E7;\n"
 "border-radius:10px;\n"
 "height:30px;\n"
 "width:300px;\n"
 "padding-left:10px;")
-        self.lineEdit.setObjectName("lineEdit")
-        self.horizontalLayout_5.addWidget(self.lineEdit)
-        self.pushButton = QtWidgets.QPushButton(self.ListPage)
+        self.SearchEdit.setObjectName("SearchEdit")
+        self.horizontalLayout_5.addWidget(self.SearchEdit)
+        self.searchListButton = QtWidgets.QPushButton(self.ListPage)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setStyleSheet("background-color:#5F5F5F;\n"
+        sizePolicy.setHeightForWidth(self.searchListButton.sizePolicy().hasHeightForWidth())
+        self.searchListButton.setSizePolicy(sizePolicy)
+        self.searchListButton.setStyleSheet("background-color:#5F5F5F;\n"
 "border-width: 2px;\n"
 "border-radius: 10px;\n"
 "color:white;\n"
 "width:65px;\n"
 "height:30px;\n"
 "padding: 4px;")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_5.addWidget(self.pushButton)
+        self.searchListButton.setObjectName("searchListButton")
+        self.horizontalLayout_5.addWidget(self.searchListButton)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem2)
         self.verticalLayout_3.addLayout(self.horizontalLayout_5)
-        self.scrollArea_2 = QtWidgets.QScrollArea(self.ListPage)
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollArea_2.setObjectName("scrollArea_2")
+        self.ListScrollArea = QtWidgets.QScrollArea(self.ListPage)
+        self.ListScrollArea.setWidgetResizable(True)
+        self.ListScrollArea.setObjectName("ListScrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 661, 305))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 661, 316))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-        self.verticalLayout_3.addWidget(self.scrollArea_2)
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.scrollAreaWidget = QtWidgets.QVBoxLayout()
+        self.scrollAreaWidget.setObjectName("scrollAreaWidget")
+        self.verticalLayout_7.addLayout(self.scrollAreaWidget)
+        self.ListScrollArea.setWidget(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_3.addWidget(self.ListScrollArea)
         self.stackedWidget.addWidget(self.ListPage)
         self.SettingsPage = QtWidgets.QWidget()
         self.SettingsPage.setObjectName("SettingsPage")
@@ -313,32 +323,17 @@ class Ui_MainWindow(object):
         self.imageabout.setScaledContents(True)
         self.imageabout.setObjectName("imageabout")
         self.verticalLayout_9.addWidget(self.imageabout)
-        self.downloadAbout = QtWidgets.QPushButton(self.verticalWidget_5)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.downloadAbout.sizePolicy().hasHeightForWidth())
-        self.downloadAbout.setSizePolicy(sizePolicy)
-        self.downloadAbout.setStyleSheet("background-color:#5F5F5F;\n"
-"\n"
-"border-width: 2px;\n"
-"border-radius: 10px;\n"
-"color:white;\n"
-"width:65px;\n"
-"height:30px;\n"
-"padding: 4px;\n"
-"")
-        self.downloadAbout.setObjectName("downloadAbout")
-        self.verticalLayout_9.addWidget(self.downloadAbout, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.horizontalLayout_10.addWidget(self.verticalWidget_5)
         self.about_text = QtWidgets.QLabel(self.AboutPage)
         self.about_text.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.about_text.sizePolicy().hasHeightForWidth())
         self.about_text.setSizePolicy(sizePolicy)
-        self.about_text.setStyleSheet("")
+        self.about_text.setStyleSheet("color:white;")
+        self.about_text.setText("")
+        self.about_text.setWordWrap(True)
         self.about_text.setObjectName("about_text")
         self.horizontalLayout_10.addWidget(self.about_text)
         self.stackedWidget.addWidget(self.AboutPage)
@@ -354,8 +349,8 @@ class Ui_MainWindow(object):
         self.linkEdit.setPlaceholderText(_translate("MainWindow", "Введите сюда ссылку на страницу animevost..."))
         self.downloadButton.setText(_translate("MainWindow", "Скачать"))
         self.cancelLoadButton.setText(_translate("MainWindow", "Отмена"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Введите название..."))
-        self.pushButton.setText(_translate("MainWindow", "Search"))
+        self.SearchEdit.setPlaceholderText(_translate("MainWindow", "Введите название..."))
+        self.searchListButton.setText(_translate("MainWindow", "Search"))
         self.label_4.setText(_translate("MainWindow", "Loading quality:"))
         self.changeQualityButton.setText(_translate("MainWindow", "480"))
         self.label.setText(_translate("MainWindow", "Mirror searching:"))
@@ -365,6 +360,4 @@ class Ui_MainWindow(object):
         self.startSearchingMirror.setText(_translate("MainWindow", "40"))
         self.ButtonSaveSettings.setText(_translate("MainWindow", "Save"))
         self.imageabout.setToolTip(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.downloadAbout.setText(_translate("MainWindow", "Download"))
-        self.about_text.setText(_translate("MainWindow", "TextLabel"))
 
